@@ -62,7 +62,68 @@ let quotes = [
 		year: 1907,
 		tags: 'friendship, life, fate'
 
+	},
+	{
+		quote: "Wisdom makes but a slow defence against trouble, though at last a sure one.",
+		source: "Oliver Goldsmith",
+		citation: "The Vicar of Wakefield",
+		year: 1766,
+		tags: 'wisdom, life'
+
+	},
+	{
+		quote: "Almost every wise saying has an opposite one, no less wise, to balance it.",
+		source: "George Santayana",
+		citation: "The Life of Reason, Vol. 5, Ch. 8",
+		year: 1906,
+		tags: 'wisdom, life'
+
+	},
+	{
+		quote: "Because your own strength is unequal to the task, do not assume that it is beyond the powers of man; but if anything is within the powers and province of man, believe that it is within your own compass also.",
+		source: "Marcus Aurelius",
+		citation: "Meditations, VI, 19",
+		tags: 'wisdom, life, challenge, strength'
+
+	},
+	{
+		quote: "Be yourself; everyone else is already taken.",
+		source: "Oscar Wilde",
+		tags: 'inspiration, self'
+	},
+	{
+		quote: "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+		source: "Dr. Seuss",
+		tags: 'love, dreams'
+
+	},
+	{
+		quote: "It does not do to dwell on dreams and forget to live.",
+		source: "J.K. Rowling",
+		citation: "Harry Potter and the Sorcerer's Stone",
+		tags: 'dreams, life'
+
+	},
+	{
+		quote: "Knowing yourself is the beginning of all wisdom.",
+		source: "Aristotle",
+		tags: 'wisdom, self'
+
+	},
+	{
+		quote: "I became insane, with long intervals of horrible sanity.",
+		source: "Edgar Allan Poe",
+		tags: 'sanity'
+	},
+	{
+		quote: "She was ready to deny the existence of space and time rather than admit that love might not be eternal.",
+		source: "Simone de  Beauvoir",
+		citation: "The Mandarins",
+		tags: 'love, eternity, denial'
 	}
+
+
+
 ];
 
 
