@@ -7,8 +7,12 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
+//declare a global variable named quoteTimer that can be accessed or cleared from inside functions
+var quoteTimer;
+
 /*** 
- * `quotes` array 
+ * `quotes` array
+ * Contains all quotes and associated information about each quote 
 ***/
 let quotes = [
 	{
@@ -16,7 +20,7 @@ let quotes = [
 		source: "Leo Buscaglia",
 		citation: "Living, Loving, and Learning",
 		year: 1985,
-		tags: ['love', 'pain', 'failure', 'risk', 'life']
+		tags: 'love, pain, failure, risk, life'
 
 	},
 	{
@@ -24,7 +28,7 @@ let quotes = [
 		source: "Ayn Rand",
 		citation: "Textbook of Americanism",
 		year: 1946,
-		tags: ['integrity', 'life', 'philosophy']
+		tags: 'integrity, life, philosophy'
 
 	},
 	{
@@ -32,7 +36,7 @@ let quotes = [
 		source: "Samuel Johnson",
 		citation: "The  History of Rasselas, Ch. 41",
 		year: 1759,
-		tags: ['integrity', 'knowledge']
+		tags: 'integrity, knowledge'
 
 	},
 	{
@@ -40,7 +44,7 @@ let quotes = [
 		source: "Emma Goldman",
 		citation: "Living My Life",
 		year: 1931,
-		tags: ['aspiration', 'hope','freedom','society']
+		tags: 'aspiration, hope, freedom, society'
 
 	},
 	{
@@ -48,7 +52,7 @@ let quotes = [
 		source: "Benjamin Franklin",
 		citation: "Poor Richard's Almanack",
 		year: 1736,
-		tags: ['patience', 'hope']
+		tags: 'patience, hope'
 
 	},
 	{
@@ -56,15 +60,17 @@ let quotes = [
 		source: "Henry Adams",
 		citation: "The Education of Henry Adams, Ch. VII",
 		year: 1907,
-		tags: ['friendship', 'life', 'fate']
+		tags: 'friendship, life, fate'
 
 	}
 ];
-console.log(quotes);
+
 
 
 /***
  * `getRandomQuote` function
+ * Generates a random number between 0 and the length of the quotes array
+ * A quote is returned from the quotes array by using the random number as the index to select from the array's elements
 ***/
 function getRandomQuote(){
 
@@ -76,28 +82,68 @@ function getRandomQuote(){
 
 /***
  * `printQuote` function
+ * This function is called by clicking the 'Show Another Quote' button or every 20 seconds by JavaScript's SetInterval function
+ * A quote object is pulled from the quotes array by calling the getRandomQuote function and stored in theQuote variable.
+ * An html string containing the quote information is generated to be added to the page.
+ * If additional information such as citations, years, and tags are available, aditional elements will be added to the string.
+ * The string is added to to the quote-box element of the page's HTML resulting in the display of the quote.
 ***/
 function printQuote(){
 
 	let theQuote = getRandomQuote();
 	let html = `
-		<p class="quote">"${theQuote.quote}"</p>
+		<p class="quote">${theQuote.quote}</p>
 		<p class="source">${theQuote.source}
 	`;
-	
+
 	if ( theQuote.citation !== undefined ){
 		html += `<span class="citation">${theQuote.citation}</span>`;
 	}
+	
 	if ( theQuote.year !== undefined ){
 		html += `<span class="year">${theQuote.year}</span>`;
 	}
 	html += `</p>`;
-	console.log(html);
+
+	if ( theQuote.tags !== undefined ){
+		html += `<span class="tags">${theQuote.tags}</span>`;
+	}
+	
+
+	//change background color. Information not covered in unit 1 found at from https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
+	document.body.style.backgroundColor = getRandomRBG();
+	
+	//reset the timer so user has the full ten seconds to read it
+	startTimer();
+	
+
+
+	
+
 	document.getElementById('quote-box').innerHTML = html; 
 	return html;
 
 }
 
+/***
+ * `randomColor` functions
+ * Generates and returns a random RGB string which will be used to generated different quote backgrounds each time a new quote is displayed
+***/
+
+function getRandomRBG (){
+	const randomColorValue = () => Math.floor( Math.random() * 256 );
+	return `rgb(${randomColorValue()},${randomColorValue()},${randomColorValue()})`;
+
+}
+
+//Set a timer to generate a new quote every 10 seconds. This timer will be reset every time the Show another quote button is clicked
+
+function startTimer(){
+	clearInterval(quoteTimer);
+	quoteTimer = setInterval( printQuote, 10000  );
+
+}
+startTimer();
 
 /***
  * click event listener for the print quote button
