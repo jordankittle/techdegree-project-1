@@ -7,12 +7,12 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-//declare a global variable named quoteTimer that can be accessed or cleared from inside functions
+//declare a global variable named quoteTimer. This is needed so it can be accessed or cleared from inside functions
 var quoteTimer;
 
 /*** 
  * `quotes` array
- * Contains all quotes and associated information about each quote 
+ * Contains quotes and associated information about each quote 
 ***/
 let quotes = [
 	{
@@ -143,11 +143,12 @@ function getRandomQuote(){
 
 /***
  * `printQuote` function
- * This function is called by clicking the 'Show Another Quote' button or every 20 seconds by JavaScript's SetInterval function
- * A quote object is pulled from the quotes array by calling the getRandomQuote function and stored in theQuote variable.
+ * This function is called by clicking the 'Show Another Quote' button or every 10 seconds by JavaScript's SetInterval function
+ * A quote object is pulled from the quotes array by calling the getRandomQuote function and storing it in the theQuote variable.
  * An html string containing the quote information is generated to be added to the page.
- * If additional information such as citations, years, and tags are available, aditional elements will be added to the string.
+ * If additional information such as citations, years, and tags are available, aditional elements will be added to the string to display it.
  * The string is added to to the quote-box element of the page's HTML resulting in the display of the quote.
+ * A new background color will be displayed for each new quote.
 ***/
 function printQuote(){
 
@@ -188,7 +189,7 @@ function printQuote(){
 
 /***
  * `randomColor` functions
- * Generates and returns a random RGB string which will be used to generated different quote backgrounds each time a new quote is displayed
+ * Generates and returns a random RGB string which will be used to generate different background colors each time a new quote is displayed
 ***/
 
 function getRandomRBG (){
