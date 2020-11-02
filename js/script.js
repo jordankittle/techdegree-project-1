@@ -187,8 +187,8 @@ function printQuote(){
 }
 
 /***
- * `randomColor` functions
- * Generates and returns a random RGB string and uses it to change the backgroun color of the page
+ * `changeBackgroundColor` function
+ * Generates a random RGB string and uses it to change the backgroun color of the page
  * Information not covered in unit 1 found at https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
 ***/
 
