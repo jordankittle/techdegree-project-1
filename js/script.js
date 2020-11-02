@@ -172,8 +172,7 @@ function printQuote(){
 	}
 	
 
-	//change background color. Information not covered in unit 1 found at https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
-	document.body.style.backgroundColor = getRandomRBG();
+	 changeBackgroundColor();
 	
 	//reset the timer so user has the full ten seconds to read it
 	startTimer();
@@ -189,12 +188,13 @@ function printQuote(){
 
 /***
  * `randomColor` functions
- * Generates and returns a random RGB string which will be used to generate different background colors each time a new quote is displayed
+ * Generates and returns a random RGB string and uses it to change the backgroun color of the page
+ * Information not covered in unit 1 found at https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
 ***/
 
-function getRandomRBG (){
+function changeBackgroundColor (){
 	const randomColorValue = () => Math.floor( Math.random() * 256 );
-	return `rgb(${randomColorValue()},${randomColorValue()},${randomColorValue()})`;
+	document.body.style.backgroundColor = `rgb(${randomColorValue()},${randomColorValue()},${randomColorValue()})`;
 
 }
 
