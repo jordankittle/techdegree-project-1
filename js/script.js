@@ -172,7 +172,7 @@ function printQuote(){
 	}
 	
 
-	//change background color. Information not covered in unit 1 found at from https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
+	//change background color. Information not covered in unit 1 found at https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
 	document.body.style.backgroundColor = getRandomRBG();
 	
 	//reset the timer so user has the full ten seconds to read it
